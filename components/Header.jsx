@@ -1,17 +1,25 @@
-// components/Header.jsx
 var React = require('react')
-var Router = require('react-router')
-var Link = Router.Link
 
 var Header = React.createClass({
+
+  propTypes: {
+    params: React.PropTypes.object,
+    posts: React.PropTypes.array,
+    title: React.PropTypes.string
+  },
+
   render: function () {
     return (
-      <header>
-        <Link to='/'>Index</Link>
-        <Link to='/about'>About</Link>
+      <header className=''>
+        <h1 className=''>
+          <a href='/' className='link-block'>
+            {this.props.title}
+          </a>
+        </h1>
       </header>
     )
   }
+
 })
 
 module.exports = Header

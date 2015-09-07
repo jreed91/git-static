@@ -1,38 +1,27 @@
-// components/Root.jsx
 var React = require('react')
-var Router = require('react-router')
-var RouteHandler = Router.RouteHandler
-var Header = require('./Header.jsx')
-var css = require('../css/base.css')
+var _find = require('lodash').find
+var Head = require('./Head.jsx')
+var Body = require('./Body.jsx')
 
 var Root = React.createClass({
-  render: function () {
-    var initialProps = {
-      __html: safeStringify(this.props)
-    }
 
+  render: function () {
+    var post = false
+    var params = this.props.params || false
+    if (params && params.post) {
+      var slug = params.post
+      post = _find(this.props.posts, function(p) {
+        return p.slug === slug
+      })
+    }
     return (
       <html>
-        <head>
-          <title>{this.props.title}</title>
-          <style dangerouslySetInnerHTML={{__html: css}} />
-        </head>
-        <body className='p2'>
-          <Header />
-          <RouteHandler {...this.props} />
-          <script
-            id='initial-props'
-            type='application/json'
-            dangerouslySetInnerHTML={initialProps} />
-          <script src='bundle.js' />
-        </body>
+        <Head {...this.props} post={post} />
+        <Body {...this.props} post={post} />
       </html>
     )
   }
-})
 
-function safeStringify(obj) {
-  return JSON.stringify(obj).replace(/<\/script/g, '<\\/script').replace(/<!--/g, '<\\!--')
-}
+})
 
 module.exports = Root
