@@ -36102,7 +36102,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  render: function () {
 	    return (
-	      React.createElement("body", {className: "container px2"}, 
+	      React.createElement("body", {className: "container"}, 
 	        React.createElement(Header, React.__spread({},  this.props)), 
 	        React.createElement(RouteHandler, React.__spread({},  this.props))
 	      )

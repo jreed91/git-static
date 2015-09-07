@@ -12,9 +12,6 @@ var Head = React.createClass({
   render: function () {
     var post = this.props.post
     var keywords = this.props.keywords
-    if (post && post.tags) {
-      keywords = keywords.concat(post.tags)
-    }
     var description
     if (post && post.excerpt) {
       description = post.excerpt

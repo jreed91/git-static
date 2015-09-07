@@ -26,7 +26,7 @@ var Index = React.createClass({
     var index = 0
     var posts 
     var previous = false
-    var next = false
+    var next = params
     if (params && params.page) {
       page = parseInt(params.page, 10)
       index = params.page - 1
@@ -37,9 +37,12 @@ var Index = React.createClass({
         next = page + 1
       }
     }
+    else {
+      console.log('null')
+    }
     posts = chunks[index]
     return (
-      <div className='py3'>
+      <div className='container clearfix px2 py2'>
         <ul className='list-reset'>
           {posts.map(this.renderPost)}
         </ul>

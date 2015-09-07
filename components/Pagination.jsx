@@ -30,6 +30,14 @@ var Pagination = React.createClass({
         </a>
       )
     }
+    else {
+       next = (
+        <a href={this.props.baseUrl + 'page/2' }
+          className='right bold'>
+          Next
+        </a>
+      )
+    }
 
     return (
       <div className='clearfix'>

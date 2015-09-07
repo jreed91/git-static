@@ -7,7 +7,7 @@ var Body = React.createClass({
 
   render: function () {
     return (
-      <body className='container px2'>
+      <body className=''>
         <Header {...this.props} />
         <RouteHandler {...this.props} />
       </body>

@@ -10,13 +10,14 @@ var Header = React.createClass({
 
   render: function () {
     return (
-      <header className=''>
-        <h1 className=''>
-          <a href='/' className='link-block'>
-            {this.props.title}
-          </a>
-        </h1>
-      </header>
+      	<nav className="clearfix p2 border-bottom">
+		  <div className="sm-col">
+		    <a href="/" className="btn py2">{this.props.title}</a>
+		  </div>
+		  <div className="sm-col-right">
+		    <a href="/" className="btn py2">About</a>
+		  </div>
+		</nav>
     )
   }
 
