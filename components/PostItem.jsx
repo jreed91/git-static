@@ -11,21 +11,27 @@ var PostItem = React.createClass({
       date: React.PropTypes.string,
       slug: React.PropTypes.string,
       draft: React.PropTypes.bool,
+      thumbnail: React.PropTypes.string,
+      link: React.React.PropTypes.string,
     })
   },
 
   render: function() {
     var post = this.props.post
     return (
-      <div>
-        <a href={'/posts/' + post.slug}
-          className='link-block'>
-          <h2 className='m0'>
-            {post.title}
-          </h2>
-          {post.subhead ? <h3 className='mt0 mb1'>{post.subhead}</h3> : false }
-        </a>
+     <div className="clearfix mxn2">
+      <div className='sm-col sm-col-8 md-col-9 px2'>
+        <div>
+
+            <h2 className='h3'>
+              <a href={'/posts/' + post.slug} className='link-block'>
+            {post.title} 
+            </a>
+            {post.link ?  <span> - <a href={post.link}>∞</a></span> : false }
+            </h2>
+        </div>
         <PostDate date={post.date} />
+        {post.thumbnail ? <img src={post.thumbnail} /> : false}
         <p className='georgia h3 mt1 mb0'>{post.excerpt}</p>
         <div className=''>
           <a href={'/posts/' + post.slug}
@@ -34,6 +40,7 @@ var PostItem = React.createClass({
           </a>
         </div>
       </div>
+    </div>
     )
   }
 

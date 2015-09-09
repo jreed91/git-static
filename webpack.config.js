@@ -6,9 +6,10 @@ var data = require('./data')
   module.exports = {
     entry: './entry.js',
 
+
     output: {
       filename: 'bundle.js',
-      path: __dirname,
+      path: __dirname + '/build',
       libraryTarget: 'umd'
     },
 
@@ -26,7 +27,8 @@ var data = require('./data')
       loaders: [
         { test: /\.jsx$/, loader: 'jsx-loader' },
         { test: /\.json$/, loader: 'json-loader' },
-        { test: /\.css/, loader: 'css-loader!cssnext-loader'}
+        { test: /\.css/, loader: 'css-loader!cssnext-loader'},
+        {test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file?name=[name].[ext]'}
       ]
     },
    
